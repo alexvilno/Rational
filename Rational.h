@@ -1,6 +1,11 @@
 #include <iostream>
-#include <string>
 #include <numeric>
+
+class RationalDivisionByZero : public std::runtime_error {
+public:
+    RationalDivisionByZero() : std::runtime_error("RationalDivisionByZero") {
+    }
+};
 
 class Rational{
 private:
@@ -118,6 +123,7 @@ const Rational operator*(Rational left, const Rational &right) {
 }
 
 const Rational operator/(Rational left, const Rational &right) {
+    if (right.numenator == 0) throw RationalDivisionByZero();
     left.numenator = left.numenator * right.denominator;
     left.denominator = left.denominator * right.numenator;
     left.reduction();
@@ -189,11 +195,12 @@ std::istream &operator >>(std::istream &in, Rational &r) {
     in >> r.numenator;
     in.ignore();
     in >> r.denominator;
-
+    if (r.numenator == 0) r.denominator = 1;
     if (r.denominator < 0) {
         r.denominator *= -1;
         r.numenator *= -1;
     }
+    if (r.denominator == 0) throw RationalDivisionByZero();
     r.reduction();
     return in;
 }
