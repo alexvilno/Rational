@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include <numeric>
 
 class RationalDivisionByZero : public std::runtime_error {
@@ -23,7 +24,7 @@ private:
 public:
     Rational() {
         numenator = 0;
-        denominator = 0;
+        denominator = 1;
     }
     Rational(int n) { //NOLINT
         numenator = n;
