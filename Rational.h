@@ -46,6 +46,7 @@ public:
         reduction();
     }
     void SetDenominator(int denominator) {
+        if(this->denominator == 0) throw RationalDivisionByZero();
         this->denominator = denominator;
         reduction();
     }
