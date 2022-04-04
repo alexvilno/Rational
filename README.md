@@ -10,7 +10,7 @@
 
 ![equation](https://latex.codecogs.com/png.image?\dpi{110}q&space;\in&space;\mathbb&space;Q&space;\iff&space;q&space;=&space;\frac{m}{n},&space;m&space;\in&space;\mathbb&space;Z,&space;n&space;\in&space;\mathbb&space;N,&space;gcd(n,m)&space;=&space;1&space;)
 
-Где gcd &mdash; **наименьшее общее кратное**
+Где gcd &mdash; **наибольший общий делитель**
 
 ## Методы класса
 **Геттеры:** 
