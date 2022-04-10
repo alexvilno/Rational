@@ -39,8 +39,8 @@ SetDenominator(int denominator);
 **Конструктор по умолчанию:**
 ```cpp
 Rational() {
-        numenator = 0;
-        denominator = 1;
+  numenator_ = 0;
+  denominator_ = 1;
 }
 ``` 
 илициализирует число **нулем**
@@ -48,17 +48,21 @@ Rational() {
 **Конструктор от двух целых чисел**
 ```cpp
 Rational(int n, int d) {
-        numenator = n;
-        denominator = d;
+  if (!d) {
+    throw RationalDivisionByZero{};
+  }
+  numenator_ = n;
+  denominator_ = d;
+  Reduction();
 }
 ```
 Инициализирует числитель и знаменатель. При этом **не обязательно**, чтобы числитель и знаменатель были взаимнопросты.
 
 **Конструктор неявного преобразования от целых чисел**
 ```cpp
-Rational(int n) { //NOLINT
-        numenator = n;
-        denominator = 1;
+Rational(int n) {  // NOLINT
+  numenator_ = n;
+  denominator_ = 1;
 }
 ```
 
