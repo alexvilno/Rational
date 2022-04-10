@@ -10,7 +10,7 @@ class RationalDivisionByZero : public std::runtime_error {
 
 class Rational {
  private:
-  int numenator_, denominator_;
+  int numerator_, denominator_;
 
   void Reduction();
 
