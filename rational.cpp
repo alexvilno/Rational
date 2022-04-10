@@ -4,22 +4,22 @@
 #include "rational.h"
 
 void Rational::Reduction() {
-  int gcd = std::gcd(numenator_, denominator_);
-  numenator_ /= gcd;
+  int gcd = std::gcd(numerator_, denominator_);
+  numerator_ /= gcd;
   denominator_ /= gcd;
   if (denominator_ < 0) {
-    numenator_ *= -1;
+    numerator_ *= -1;
     denominator_ *= -1;
   }
 }
 
 Rational::Rational() {
-  numenator_ = 0;
+  numerator_ = 0;
   denominator_ = 1;
 }
 
 Rational::Rational(int n) {  // NOLINT
-  numenator_ = n;
+  numerator_ = n;
   denominator_ = 1;
 }
 
@@ -27,13 +27,13 @@ Rational::Rational(int n, int d) {
   if (!d) {
     throw RationalDivisionByZero{};
   }
-  numenator_ = n;
+  numerator_ = n;
   denominator_ = d;
   Reduction();
 }
 
 int Rational::GetNumerator() const {
-  return numenator_;
+  return numerator_;
 }
 
 int Rational::GetDenominator() const {
@@ -41,7 +41,7 @@ int Rational::GetDenominator() const {
 }
 
 void Rational::SetNumerator(const int &numerator) {
-  numenator_ = numerator;
+  numerator_ = numerator;
   Reduction();
 }
 
@@ -82,7 +82,7 @@ Rational Rational::operator--(int) {
 }
 
 Rational Rational::operator+(const Rational &other) const {
-  int n = this->numenator_ * other.denominator_ + other.numenator_ * this->denominator_;
+  int n = this->numerator_ * other.denominator_ + other.numerator_ * this->denominator_;
   int d = this->denominator_ * other.denominator_;
 
   return Rational(n, d);
@@ -93,17 +93,17 @@ Rational Rational::operator-(const Rational &other) const {
 }
 
 Rational Rational::operator*(const Rational &other) const {
-  int n = this->numenator_ * other.numenator_;
+  int n = this->numerator_ * other.numerator_;
   int d = this->denominator_ * other.denominator_;
   return Rational(n, d);
 }
 
 Rational Rational::operator/(const Rational &other) const {
-  if (other.numenator_ == 0) {
+  if (other.numerator_ == 0) {
     throw RationalDivisionByZero{};
   }
-  int n = this->numenator_ * other.denominator_;
-  int d = this->denominator_ * other.numenator_;
+  int n = this->numerator_ * other.denominator_;
+  int d = this->denominator_ * other.numerator_;
   return Rational(n, d);
 }
 
@@ -144,7 +144,7 @@ Rational &Rational::operator/=(const Rational &other) {
 }
 
 bool Rational::operator==(const Rational &other) const {
-  return numenator_ == other.numenator_ && denominator_ == other.denominator_;
+  return numerator_ == other.numerator_ && denominator_ == other.denominator_;
 }
 
 bool Rational::operator!=(const Rational &other) const {
@@ -152,7 +152,7 @@ bool Rational::operator!=(const Rational &other) const {
 }
 
 bool Rational::operator>(const Rational &other) const {
-  return numenator_ * other.denominator_ > other.numenator_ * denominator_;
+  return numerator_ * other.denominator_ > other.numerator_ * denominator_;
 }
 
 bool Rational::operator<(const Rational &other) const {
@@ -192,7 +192,7 @@ bool operator>=(const int &integer, const Rational &rational) {
 }
 
 std::ostream &operator<<(std::ostream &out, const Rational &r) {
-  r.denominator_ != 1 ? out << r.numenator_ << "/" << r.denominator_ : out << r.numenator_;
+  r.denominator_ != 1 ? out << r.numerator_ << "/" << r.denominator_ : out << r.numerator_;
   return out;
 }
 
