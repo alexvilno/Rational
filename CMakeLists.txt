@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
-project(Rational)
+project(rational)
 
 set(CMAKE_CXX_STANDARD 23)
 
-add_executable(Rational main.cpp Rational.h)
+add_executable(rational rational_public_test.cpp rational.h rational.cpp catch.h)
