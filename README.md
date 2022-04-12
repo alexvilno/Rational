@@ -10,7 +10,7 @@
 
 Определение **рационального числа:**
 
-![equation](https://latex.codecogs.com/gif.latex?%5Cdpi%7B300%7D%20q%20%5Cin%20%5Cmathbb%20Q%20%5Ciff%20q%20%3D%20%5Cfrac%7Bm%7D%7Bn%7D%2C%20m%20%5Cin%20%5Cmathbb%20Z%2C%20n%20%5Cin%20%5Cmathbb%20N%2C%20gcd%28m%2Cn%29%20%3D1)
+![equation](https://latex.codecogs.com/gif.latex?%5Cdpi%7B200%7D%20q%20%5Cin%20%5Cmathbb%20Q%20%5Ciff%20q%20%3D%20%5Cfrac%7Bm%7D%7Bn%7D%2C%20m%20%5Cin%20%5Cmathbb%20Z%2C%20n%20%5Cin%20%5Cmathbb%20N%2C%20gcd%28m%2Cn%29%20%3D1)
 
 Где gcd &mdash; **наибольший общий делитель**
 
